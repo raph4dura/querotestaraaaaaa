@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alimentos Naturais</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="foods-list">
+                <h2>Lista de Alimentos</h2>
+                <div v-for="(category, categoryName) in foodCategories" :key="categoryName">
+                    <h3>{{ categoryName }}</h3>
+                    <ul>
+                        <li v-for="item in category" :key="item.name">
+                            {{ item.name }}
+                            <button class="add-btn" @click="addItem(item, categoryName)">Adicionar</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<!-- Itens adicionados -->
+<div class="added-foods-container" v-show="Object.keys(addedItemsByCategory).some(category => addedItemsByCategory[category].length > 0)">
+    <div class="added-foods">
+        <h2>Itens Adicionados</h2>
+        <template v-for="(items, category) in addedItemsByCategory" :key="category">
+            <h3>{{ category }}</h3>
+            <ul>
+                <li v-for="item in items" :key="item.name" id="item-{{ item.name }}">
+                    {{ item.name }} - {{ item.quantity }}
+                    <div class="quantity-controls">
+                        <button class="control-btn" @click="adjustQuantity(item, category, 1)">+1</button>
+                        <button class="control-btn" @click="adjustQuantity(item, category, -1)">-1</button>
+                        <!-- Campo de entrada para adicionar quantidade -->
+                        <input type="number" v-model.number="item.quantityToAdd" style="width: 50px;">
+                        <button class="control-btn" @click="increaseQuantityByInput(item)">Adicionar</button>
+                        <!-- Botões -6 e +6 -->
+                        <button class="control-btn" @click="decreaseBySix(item)" v-if="item.quantity > 6">-6</button>
+                        <button class="control-btn" @click="increaseBySix(item)">+6</button>
+                        <!-- Botão +6 para adicionar 6 unidades -->
+                        <button class="control-btn" @click="increaseBySixItem(item)">+6 Item</button>
+                    </div>
+                </li>
+            </ul>
+        </template>
+    </div>
+</div>
+
+
+        <!-- Formulário de envio por email -->
+        <div>
+            <h2>Enviar por Email</h2>
+            <form id="emailForm" action="/send-email" method="POST">
+                <textarea id="emailContent" name="emailContent" hidden></textarea>
+                <div class="added-items-list">
+                    <h3>Itens Adicionados</h3>
+                    <ul>
+                        <template v-for="(items, category) in addedItemsByCategory" :key="category">
+                            <h4>{{ category }}</h4>
+                            <li v-for="item in items" :key="item.name">
+                                {{ item.name }} - {{ item.quantity }}
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <div class="observation">
+                    <label for="observationText">Observação:</label><br>
+                    <textarea id="observationText" name="observationText" rows="4" cols="50"></textarea><br><br>
+                </div>
+                <button type="submit" class="btn-send-email" @click.prevent="enviarPorEmail">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
