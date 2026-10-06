@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="theme-color" content="#111827">
 <meta name="description" content="Igreja Encontros de Fé - Portão/RS">
-
-<title>Igreja Encontros de Fé</title>
-
-<style>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes"><title>Igreja Encontros de Fé</title><style>
 *{
     margin:0;
     padding:0;
@@ -26,9 +22,7 @@ body{
     color:#1f2937;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
     background:linear-gradient(135deg,#111827,#1e3a8a);
@@ -49,7 +43,7 @@ header h1{
 .menu-btn{
     position:absolute;
     left:18px;
-    top:20px;
+    top:18px;
     background:none;
     border:0;
     color:white;
@@ -71,17 +65,9 @@ nav button{
     padding:10px 14px;
     border-radius:10px;
     cursor:pointer;
-    transition:.2s;
 }
 
-nav button:hover{
-    background:white;
-    color:#1e3a8a;
-}
-
-/* =========================
-   MENU MOBILE
-========================= */
+/* MENU MOBILE */
 
 .mobile-menu{
     display:none;
@@ -98,20 +84,17 @@ nav button:hover{
     color:white;
     border-radius:8px;
     text-align:left;
+    cursor:pointer;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* CONTAINER */
 
 .container{
     width:min(1100px,92%);
     margin:auto;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     text-align:center;
@@ -132,9 +115,7 @@ nav button:hover{
     line-height:1.6;
 }
 
-/* =========================
-   SEÇÕES
-========================= */
+/* SEÇÕES */
 
 section{
     padding:35px 0;
@@ -147,9 +128,32 @@ section{
     color:#111827;
 }
 
-/* =========================
-   CULTOS
-========================= */
+/* AÇÕES */
+
+.acoes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.acao{
+    background:white;
+    border:0;
+    padding:20px;
+    border-radius:13px;
+    cursor:pointer;
+    font-size:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+    transition:.2s;
+}
+
+.acao:hover{
+    transform:translateY(-3px);
+    background:#eff6ff;
+}
+
+/* CULTOS */
 
 .cultos{
     display:grid;
@@ -185,9 +189,7 @@ section{
     line-height:1.5;
 }
 
-/* =========================
-   EVENTOS
-========================= */
+/* EVENTOS */
 
 .eventos{
     display:grid;
@@ -223,9 +225,7 @@ section{
     line-height:1.5;
 }
 
-/* =========================
-   LOCALIZAÇÃO
-========================= */
+/* LOCALIZAÇÃO */
 
 .localizacao{
     background:white;
@@ -247,9 +247,7 @@ section{
     border-radius:12px;
 }
 
-/* =========================
-   FOTOS
-========================= */
+/* FOTOS */
 
 .fotos{
     display:grid;
@@ -275,9 +273,7 @@ section{
     transform:scale(1.05);
 }
 
-/* =========================
-   CONTATO
-========================= */
+/* CONTATO */
 
 .contato{
     text-align:center;
@@ -293,6 +289,7 @@ section{
 }
 
 .btn{
+    display:inline-block;
     border:0;
     padding:13px 20px;
     border-radius:10px;
@@ -300,6 +297,7 @@ section{
     font-size:15px;
     font-weight:bold;
     transition:.2s;
+    text-decoration:none;
 }
 
 .btn:hover{
@@ -328,9 +326,7 @@ section{
     gap:10px;
 }
 
-/* =========================
-   REDES SOCIAIS
-========================= */
+/* REDES */
 
 .redes{
     display:flex;
@@ -353,36 +349,7 @@ section{
     transform:translateY(-3px);
 }
 
-/* =========================
-   BOTÕES EXTRAS
-========================= */
-
-.acoes{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-    gap:15px;
-    margin:20px 0;
-}
-
-.acao{
-    background:white;
-    border:0;
-    padding:20px;
-    border-radius:13px;
-    cursor:pointer;
-    font-size:16px;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-    transition:.2s;
-}
-
-.acao:hover{
-    transform:translateY(-3px);
-    background:#eff6ff;
-}
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     margin-top:50px;
@@ -397,9 +364,7 @@ footer p{
     margin:5px;
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
     display:none;
@@ -463,9 +428,7 @@ label{
     font-size:14px;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* RESPONSIVO */
 
 @media(max-width:700px){
 
@@ -476,10 +439,6 @@ label{
     }
 
     nav{
-        display:none;
-    }
-
-    .mobile-menu{
         display:none;
     }
 
@@ -498,578 +457,473 @@ label{
     .mapa{
         height:280px;
     }
+
+    .foto{
+        height:170px;
+    }
 }
-</style>
-</head>
+</style></head><body><header><button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menu">
+    ☰
+</button>
 
-<body>
+<h1>Igreja Encontros de Fé</h1>
 
-<!-- =========================
-     CABEÇALHO
-========================= -->
-
-<header>
-
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    <h1>Igreja Encontros de Fé</h1>
-
-    <nav>
-        <button onclick="irPara('inicio')">🏠 Início</button>
-        <button onclick="abrirEventos()">📢 Anúncios</button>
-        <button onclick="irPara('fotos')">📷 Fotos</button>
-        <button onclick="irPara('contato')">📞 Contato</button>
-    </nav>
-
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-
+<nav>
     <button onclick="irPara('inicio')">🏠 Início</button>
     <button onclick="abrirEventos()">📢 Anúncios</button>
     <button onclick="irPara('fotos')">📷 Fotos</button>
     <button onclick="irPara('contato')">📞 Contato</button>
+</nav>
 
-</div>
+</header><div class="mobile-menu" id="mobileMenu"><button onclick="irPara('inicio')">🏠 Início</button>
+<button onclick="abrirEventos()">📢 Anúncios</button>
+<button onclick="irPara('fotos')">📷 Fotos</button>
+<button onclick="irPara('contato')">📞 Contato</button>
 
-<!-- =========================
-     CONTEÚDO
-========================= -->
+</div><main id="inicio"><div class="container"><section class="hero">
 
-<main id="inicio">
-
-<div class="container">
-
-    <section class="hero">
-
-        <h2>Bem-vindo!</h2>
-
-        <p>
-            Um lugar para adorar a Deus, crescer na fé
-            e viver em comunhão.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         AÇÕES
-    ========================= -->
-
-    <div class="acoes">
-
-        <button class="acao" onclick="abrirModal('oracao')">
-            🙏<br><br>
-            Pedidos de Oração
-        </button>
-
-        <button class="acao" onclick="abrirModal('sugestao')">
-            💡<br><br>
-            Sugestões
-        </button>
-
-        <button class="acao" onclick="abrirModal('biblioteca')">
-            📚<br><br>
-            Biblioteca
-        </button>
-
-        <button class="acao" onclick="abrirModal('login')">
-            🔐<br><br>
-            Login
-        </button>
-
-    </div>
-
-
-    <!-- =========================
-         CULTOS
-    ========================= -->
-
-    <section>
-
-        <h2 class="section-title">
-            Horários dos Cultos
-        </h2>
-
-        <div class="cultos">
-
-            <div class="culto">
-                <div class="icone">⛪</div>
-                <h3>Domingos (Família)</h3>
-                <p>9H e às 19:30m</p>
-            </div>
-
-            <div class="culto">
-                <div class="icone">🙏</div>
-                <h3>Segundas (Oração)</h3>
-                <p>19h30</p>
-            </div>
-
-            <div class="culto">
-                <div class="icone">✝️</div>
-                <h3>Terças (Libertação)</h3>
-                <p>15H</p>
-            </div>
-
-            <div class="culto">
-                <div class="icone">✝️</div>
-                <h3>Quartas (Libertação)</h3>
-                <p>20H</p>
-            </div>
-
-            <div class="culto">
-                <div class="icone">📖</div>
-                <h3>Sábados (Adolescentes e Jovens)</h3>
-                <p>18H e às 19:30m</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         EVENTOS
-    ========================= -->
-
-    <section id="eventos">
-
-        <h2 class="section-title">
-            🎉 Próximos Eventos
-        </h2>
-
-        <div class="eventos">
-
-            <div class="evento">
-
-                <div class="icone">❤️</div>
-
-                <h3>Jantar de Casais</h3>
-
-                <div class="data">
-                    📅 13/06
-                </div>
-
-                <p>
-                    Uma noite especial de comunhão,
-                    louvor e fortalecimento dos laços familiares.
-                </p>
-
-            </div>
-
-
-            <div class="evento">
-
-                <div class="icone">🔥</div>
-
-                <h3>Jovens Portão + Estância Velha</h3>
-
-                <div class="data">
-                    📅 11/07
-                </div>
-
-                <p>
-                    Encontro especial de jovens para
-                    comunhão, adoração e integração.
-                </p>
-
-            </div>
-
-
-            <div class="evento">
-
-                <div class="icone">📖</div>
-
-                <h3>Evangelismo</h3>
-
-                <div class="data">
-                    📅 25/07
-                </div>
-
-                <p>
-                    Saída evangelística para compartilhar
-                    o amor de Cristo com nossa cidade.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         LOCALIZAÇÃO
-    ========================= -->
-
-    <section>
-
-        <h2 class="section-title">
-            📍 Localização
-        </h2>
-
-        <div class="localizacao">
-
-            <div class="endereco">
-                Avenida Ceará, 944 - Portão
-            </div>
-
-            <iframe
-                class="mapa"
-                src="https://www.google.com/maps?q=Avenida+Ceará,+944,+Portão,+RS&output=embed"
-                loading="lazy">
-            </iframe>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOTOS
-    ========================= -->
-
-    <section id="fotos">
-
-        <h2 class="section-title">
-            Nossos Momentos
-        </h2>
-
-        <div class="fotos">
-
-            <div class="foto">
-                <img
-                    src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=700&q=80"
-                    alt="Culto dos Jovens">
-            </div>
-
-            <div class="foto">
-                <img
-                    src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=700&q=80"
-                    alt="Batismo">
-            </div>
-
-            <div class="foto">
-                <img
-                    src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=700&q=80"
-                    alt="Encontro">
-            </div>
-
-            <div class="foto">
-                <img
-                    src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=700&q=80"
-                    alt="Encontro da igreja">
-            </div>
-
-            <div class="foto">
-                <img
-                    src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=700&q=80"
-                    alt="Culto Temático">
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTATO
-    ========================= -->
-
-    <section id="contato">
-
-        <h2 class="section-title">
-            📞 Contato
-        </h2>
-
-        <div class="contato">
-
-            <p>
-                Entre em contato conosco através do WhatsApp.
-            </p>
-
-            <div class="botoes">
-
-                <!--
-                TROQUE O NÚMERO ABAIXO PELO WHATSAPP DA IGREJA
-                Exemplo:
-                https://wa.me/5551999999999
-                -->
-
-                <a
-                    class="btn btn-success"
-                    href="https://wa.me/"
-                    target="_blank">
-                    💬 WhatsApp
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         REDES SOCIAIS
-    ========================= -->
-
-    <section>
-
-        <h2 class="section-title">
-            📱 Redes Sociais
-        </h2>
-
-        <div class="redes">
-
-            <a
-                class="rede"
-                href="https://www.instagram.com/encontrosdefeportao/"
-                target="_blank">
-
-                📷 Igreja
-                <br>
-                @encontrosdefeportao
-
-            </a>
-
-
-            <a
-                class="rede"
-                href="https://www.instagram.com/jovensefportao/"
-                target="_blank">
-
-                🔥 Jovens EF
-                <br>
-                @jovensefportao
-
-            </a>
-
-        </div>
-
-    </section>
-
-</div>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>© 2026 Igreja Encontros de Fé</p>
+    <h2>Bem-vindo!</h2>
 
     <p>
-        Portão - RS
+        Um lugar para adorar a Deus, crescer na fé
+        e viver em comunhão.
     </p>
 
-</footer>
+</section>
 
+<div class="acoes">
 
-<!-- =========================
-     MODAL - ORAÇÃO
-========================= -->
+    <button class="acao" onclick="abrirModal('oracao')">
+        🙏<br><br>
+        Pedidos de Oração
+    </button>
 
-<div class="modal" id="modal-oracao">
+    <button class="acao" onclick="abrirModal('sugestao')">
+        💡<br><br>
+        Sugestões
+    </button>
 
-    <div class="modal-content">
+    <button class="acao" onclick="abrirModal('biblioteca')">
+        📚<br><br>
+        Biblioteca
+    </button>
 
-        <button class="fechar" onclick="fecharModal('oracao')">
-            ×
-        </button>
-
-        <h2>🙏 Pedido de Oração</h2>
-
-        <p>
-            Compartilhe seu pedido de oração conosco.
-        </p>
-
-        <form onsubmit="enviarFormulario(event,'Pedido de oração')">
-
-            <label>Nome</label>
-
-            <input
-                type="text"
-                id="nomeOracao"
-                required
-                placeholder="Seu nome">
-
-            <label>Pedido</label>
-
-            <textarea
-                id="pedidoOracao"
-                required
-                placeholder="Digite seu pedido de oração..."></textarea>
-
-            <button class="btn btn-primary" type="submit">
-                Enviar Pedido
-            </button>
-
-        </form>
-
-    </div>
+    <button class="acao" onclick="abrirModal('login')">
+        🔐<br><br>
+        Login
+    </button>
 
 </div>
 
+<section>
 
-<!-- =========================
-     MODAL - SUGESTÃO
-========================= -->
+    <h2 class="section-title">
+        Horários dos Cultos
+    </h2>
 
-<div class="modal" id="modal-sugestao">
+    <div class="cultos">
 
-    <div class="modal-content">
+        <div class="culto">
+            <div class="icone">⛪</div>
+            <h3>Domingos (Família)</h3>
+            <p>9H e às 19:30</p>
+        </div>
 
-        <button class="fechar" onclick="fecharModal('sugestao')">
-            ×
-        </button>
+        <div class="culto">
+            <div class="icone">🙏</div>
+            <h3>Segundas (Oração)</h3>
+            <p>19h30</p>
+        </div>
 
-        <h2>💡 Sugestões</h2>
+        <div class="culto">
+            <div class="icone">✝️</div>
+            <h3>Terças (Libertação)</h3>
+            <p>15H</p>
+        </div>
 
-        <p>
-            Tem alguma sugestão para nossa igreja?
-            Envie para nós.
-        </p>
+        <div class="culto">
+            <div class="icone">✝️</div>
+            <h3>Quartas (Libertação)</h3>
+            <p>20H</p>
+        </div>
 
-        <form onsubmit="enviarFormulario(event,'Sugestão')">
-
-            <label>Nome</label>
-
-            <input
-                type="text"
-                required
-                placeholder="Seu nome">
-
-            <label>Sugestão</label>
-
-            <textarea
-                required
-                placeholder="Digite sua sugestão..."></textarea>
-
-            <button class="btn btn-primary" type="submit">
-                Enviar Sugestão
-            </button>
-
-        </form>
+        <div class="culto">
+            <div class="icone">📖</div>
+            <h3>Sábados (Adolescentes e Jovens)</h3>
+            <p>18H e às 19:30</p>
+        </div>
 
     </div>
 
-</div>
+</section>
 
+<section id="eventos">
 
-<!-- =========================
-     MODAL - BIBLIOTECA
-========================= -->
+    <h2 class="section-title">
+        🎉 Próximos Eventos
+    </h2>
 
-<div class="modal" id="modal-biblioteca">
+    <div class="eventos">
 
-    <div class="modal-content">
+        <div class="evento">
 
-        <button class="fechar" onclick="fecharModal('biblioteca')">
-            ×
+            <div class="icone">❤️</div>
+
+            <h3>Jantar de Casais</h3>
+
+            <div class="data">
+                📅 13/06
+            </div>
+
+            <p>
+                Uma noite especial de comunhão,
+                louvor e fortalecimento dos laços familiares.
+            </p>
+
+        </div>
+
+        <div class="evento">
+
+            <div class="icone">🔥</div>
+
+            <h3>Jovens Portão + Estância Velha</h3>
+
+            <div class="data">
+                📅 11/07
+            </div>
+
+            <p>
+                Encontro especial de jovens para
+                comunhão, adoração e integração.
+            </p>
+
+        </div>
+
+        <div class="evento">
+
+            <div class="icone">📖</div>
+
+            <h3>Evangelismo</h3>
+
+            <div class="data">
+                📅 25/07
+            </div>
+
+            <p>
+                Saída evangelística para compartilhar
+                o amor de Cristo com nossa cidade.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">
+        📍 Localização
+    </h2>
+
+    <div class="localizacao">
+
+        <div class="endereco">
+            Avenida Ceará, 944 - Portão/RS
+        </div>
+
+        <iframe
+            class="mapa"
+            src="https://www.google.com/maps?q=Avenida+Ceará,+944,+Portão,+RS&output=embed"
+            loading="lazy"
+            title="Localização da Igreja Encontros de Fé">
+        </iframe>
+
+    </div>
+
+</section>
+
+<section id="fotos">
+
+    <h2 class="section-title">
+        Nossos Momentos
+    </h2>
+
+    <div class="fotos">
+
+        <div class="foto">
+            <img
+                src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=700&q=80"
+                alt="Culto">
+        </div>
+
+        <div class="foto">
+            <img
+                src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=700&q=80"
+                alt="Igreja">
+        </div>
+
+        <div class="foto">
+            <img
+                src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=700&q=80"
+                alt="Encontro">
+        </div>
+
+        <div class="foto">
+            <img
+                src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=700&q=80"
+                alt="Encontro da igreja">
+        </div>
+
+        <div class="foto">
+            <img
+                src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=700&q=80"
+                alt="Culto">
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contato">
+
+    <h2 class="section-title">
+        📞 Contato
+    </h2>
+
+    <div class="contato">
+
+        <p>
+            Entre em contato conosco através do WhatsApp.
+        </p>
+
+        <div class="botoes">
+
+            <!--
+            COLOQUE O NÚMERO DA IGREJA AQUI.
+            Exemplo:
+            https://wa.me/5551999999999
+            -->
+
+            <a
+                class="btn btn-success"
+                href="https://wa.me/"
+                target="_blank"
+                rel="noopener">
+                💬 WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">
+        📱 Redes Sociais
+    </h2>
+
+    <div class="redes">
+
+        <a
+            class="rede"
+            href="https://www.instagram.com/encontrosdefeportao/"
+            target="_blank"
+            rel="noopener">
+
+            📷 Igreja
+            <br>
+            @encontrosdefeportao
+
+        </a>
+
+        <a
+            class="rede"
+            href="https://www.instagram.com/jovensefportao/"
+            target="_blank"
+            rel="noopener">
+
+            🔥 Jovens EF
+            <br>
+            @jovensefportao
+
+        </a>
+
+    </div>
+
+</section>
+
+</div></main><footer><p>© 2026 Igreja Encontros de Fé</p>
+<p>Portão - RS</p>
+
+</footer><!-- MODAL ORAÇÃO --><div class="modal" id="modal-oracao"><div class="modal-content">
+
+    <button class="fechar" onclick="fecharModal('oracao')">
+        ×
+    </button>
+
+    <h2>🙏 Pedido de Oração</h2>
+
+    <p>
+        Compartilhe seu pedido de oração conosco.
+    </p>
+
+    <form onsubmit="enviarFormulario(event,'Pedido de oração')">
+
+        <label for="nomeOracao">Nome</label>
+
+        <input
+            type="text"
+            id="nomeOracao"
+            required
+            placeholder="Seu nome">
+
+        <label for="pedidoOracao">Pedido</label>
+
+        <textarea
+            id="pedidoOracao"
+            required
+            placeholder="Digite seu pedido de oração..."></textarea>
+
+        <button class="btn btn-primary" type="submit">
+            Enviar Pedido
         </button>
 
-        <h2>📚 Biblioteca</h2>
+    </form>
 
-        <p>
-            Materiais, estudos bíblicos e conteúdos
-            disponibilizados pela Igreja Encontros de Fé.
-        </p>
+</div>
 
-        <p>
-            Em breve novos materiais estarão disponíveis.
-        </p>
+</div><!-- MODAL SUGESTÃO --><div class="modal" id="modal-sugestao"><div class="modal-content">
+
+    <button class="fechar" onclick="fecharModal('sugestao')">
+        ×
+    </button>
+
+    <h2>💡 Sugestões</h2>
+
+    <p>
+        Tem alguma sugestão para nossa igreja?
+        Envie para nós.
+    </p>
+
+    <form onsubmit="enviarFormulario(event,'Sugestão')">
+
+        <label for="nomeSugestao">Nome</label>
+
+        <input
+            type="text"
+            id="nomeSugestao"
+            required
+            placeholder="Seu nome">
+
+        <label for="textoSugestao">Sugestão</label>
+
+        <textarea
+            id="textoSugestao"
+            required
+            placeholder="Digite sua sugestão..."></textarea>
+
+        <button class="btn btn-primary" type="submit">
+            Enviar Sugestão
+        </button>
+
+    </form>
+
+</div>
+
+</div><!-- MODAL BIBLIOTECA --><div class="modal" id="modal-biblioteca"><div class="modal-content">
+
+    <button class="fechar" onclick="fecharModal('biblioteca')">
+        ×
+    </button>
+
+    <h2>📚 Biblioteca</h2>
+
+    <p>
+        Materiais, estudos bíblicos e conteúdos
+        disponibilizados pela Igreja Encontros de Fé.
+    </p>
+
+    <p>
+        Em breve novos materiais estarão disponíveis.
+    </p>
+
+    <button
+        class="btn btn-dark"
+        onclick="fecharModal('biblioteca')">
+
+        Fechar
+
+    </button>
+
+</div>
+
+</div><!-- MODAL LOGIN --><div class="modal" id="modal-login"><div class="modal-content">
+
+    <button class="fechar" onclick="fecharModal('login')">
+        ×
+    </button>
+
+    <h2>🔐 Login</h2>
+
+    <p>
+        Área administrativa da igreja.
+    </p>
+
+    <form onsubmit="login(event)">
+
+        <label for="email">E-mail</label>
+
+        <input
+            type="email"
+            id="email"
+            required
+            placeholder="seu@email.com">
+
+        <label for="senha">Senha</label>
+
+        <input
+            type="password"
+            id="senha"
+            required
+            placeholder="Sua senha">
 
         <button
-            class="btn btn-dark"
-            onclick="fecharModal('biblioteca')">
+            type="submit"
+            class="btn btn-primary">
 
-            Fechar
+            Entrar
 
         </button>
 
-    </div>
+    </form>
 
 </div>
 
+</div><script>
 
-<!-- =========================
-     MODAL - LOGIN
-========================= -->
-
-<div class="modal" id="modal-login">
-
-    <div class="modal-content">
-
-        <button class="fechar" onclick="fecharModal('login')">
-            ×
-        </button>
-
-        <h2>🔐 Login</h2>
-
-        <p>
-            Área administrativa da igreja.
-        </p>
-
-        <form onsubmit="login(event)">
-
-            <label>E-mail</label>
-
-            <input
-                type="email"
-                id="email"
-                required
-                placeholder="seu@email.com">
-
-            <label>Senha</label>
-
-            <input
-                type="password"
-                id="senha"
-                required
-                placeholder="Sua senha">
-
-            <button
-                type="submit"
-                class="btn btn-primary">
-
-                Entrar
-
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* =========================
-   NAVEGAÇÃO
-========================= */
+/* NAVEGAÇÃO */
 
 function irPara(id){
 
     const elemento = document.getElementById(id);
 
     if(elemento){
+
         elemento.scrollIntoView({
-            behavior:"smooth"
+            behavior:"smooth",
+            block:"start"
         });
+
     }
 
     fecharMenu();
 }
 
 
-/* =========================
-   MENU MOBILE
-========================= */
+/* MENU MOBILE */
 
 function toggleMenu(){
 
@@ -1086,38 +940,45 @@ function toggleMenu(){
 
 function fecharMenu(){
 
-    document.getElementById("mobileMenu").style.display = "none";
+    const menu = document.getElementById("mobileMenu");
+
+    if(menu){
+        menu.style.display = "none";
+    }
 
 }
 
 
-/* =========================
-   EVENTOS
-========================= */
+/* EVENTOS */
 
 function abrirEventos(){
 
     const elemento = document.getElementById("eventos");
 
-    elemento.scrollIntoView({
-        behavior:"smooth"
-    });
+    if(elemento){
+
+        elemento.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
 
     fecharMenu();
-
 }
 
 
-/* =========================
-   MODAIS
-========================= */
+/* MODAIS */
 
 function abrirModal(nome){
 
     const modal = document.getElementById("modal-" + nome);
 
     if(modal){
+
         modal.style.display = "flex";
+
+        document.body.style.overflow = "hidden";
     }
 
 }
@@ -1128,13 +989,16 @@ function fecharModal(nome){
     const modal = document.getElementById("modal-" + nome);
 
     if(modal){
+
         modal.style.display = "none";
+
+        document.body.style.overflow = "";
     }
 
 }
 
 
-/* Fecha clicando fora */
+/* FECHAR MODAL CLICANDO FORA */
 
 window.addEventListener("click",function(event){
 
@@ -1142,14 +1006,33 @@ window.addEventListener("click",function(event){
 
         event.target.style.display = "none";
 
+        document.body.style.overflow = "";
+
     }
 
 });
 
 
-/* =========================
-   FORMULÁRIOS
-========================= */
+/* FECHAR COM ESC */
+
+window.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        document.querySelectorAll(".modal").forEach(function(modal){
+
+            modal.style.display = "none";
+
+        });
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+
+/* FORMULÁRIOS */
 
 function enviarFormulario(event,tipo){
 
@@ -1157,17 +1040,22 @@ function enviarFormulario(event,tipo){
 
     alert(
         tipo +
-        " recebido!\n\nObrigado por participar e contribuir com a igreja."
+        " recebido!\n\n" +
+        "Obrigado por participar e contribuir com a igreja."
     );
 
     event.target.reset();
 
+    document.querySelectorAll(".modal").forEach(function(modal){
+        modal.style.display = "none";
+    });
+
+    document.body.style.overflow = "";
+
 }
 
 
-/* =========================
-   LOGIN
-========================= */
+/* LOGIN */
 
 function login(event){
 
@@ -1177,14 +1065,13 @@ function login(event){
         document.getElementById("email").value;
 
     alert(
-        "Login solicitado para:\n" +
+        "Login recebido para:\n\n" +
         email +
-        "\n\nA autenticação precisa ser conectada ao Firebase."
+        "\n\n" +
+        "Esta versão é totalmente independente e não possui servidor de autenticação."
     );
 
 }
 
-</script>
-
-</body>
+</script></body>
 </html>
