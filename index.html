@@ -1132,23 +1132,18 @@ button{
         </div>
 
 
-        <div class="form-group">
+      <div class="form-group">
 
-            <label>Forma de recebimento</label>
+    <label>🪑 Número da mesa</label>
 
-            <select id="deliveryType">
+    <input
+        id="tableNumber"
+        type="number"
+        min="1"
+        placeholder="Ex: 5"
+    >
 
-                <option value="Retirada na loja">
-                    Retirada na loja
-                </option>
-
-                <option value="Entrega">
-                    Entrega
-                </option>
-
-            </select>
-
-        </div>
+</div>
 
 
         <div class="form-group">
@@ -1706,20 +1701,25 @@ function finalizarPedido(){
     }
 
 
-    const recebimento =
-        document
-        .getElementById("deliveryType")
-        .value;
+const mesa =
+    document
+    .getElementById("tableNumber")
+    .value.trim();
 
-    const pagamento =
-        document
-        .getElementById("paymentType")
-        .value;
+if(!mesa){
+    alert("Digite o número da mesa.");
+    return;
+}
 
-    const observacao =
-        document
-        .getElementById("orderNote")
-        .value.trim();
+const pagamento =
+    document
+    .getElementById("paymentType")
+    .value;
+
+const observacao =
+    document
+    .getElementById("orderNote")
+    .value.trim();
 
 
     let total = 0;
@@ -1732,15 +1732,15 @@ function finalizarPedido(){
         encodeURIComponent(nome) +
         "%0A";
 
-    mensagem +=
-        "📦 Recebimento: " +
-        encodeURIComponent(recebimento) +
-        "%0A";
+mensagem +=
+    "🪑 Mesa: " +
+    encodeURIComponent(mesa) +
+    "%0A";
 
-    mensagem +=
-        "💳 Pagamento: " +
-        encodeURIComponent(pagamento) +
-        "%0A%0A";
+mensagem +=
+    "💳 Pagamento: " +
+    encodeURIComponent(pagamento) +
+    "%0A%0A";
 
     mensagem +=
         "*ITENS:*%0A";
