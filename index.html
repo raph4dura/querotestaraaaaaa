@@ -1,1077 +1,1927 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111827">
-<meta name="description" content="Igreja Encontros de Fé - Portão/RS">
+
+<meta name="theme-color" content="#5b21b6">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes"><title>Igreja Encontros de Fé</title><style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<title>Cantinho do Açaí — Portão</title>
+
+<style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+:root{
+    --roxo:#6d28d9;
+    --roxo2:#7c3aed;
+    --roxo-escuro:#4c1d95;
+    --rosa:#ec4899;
+    --fundo:#f7f5fb;
+    --texto:#241b35;
+    --cinza:#6b7280;
+    --branco:#ffffff;
+    --verde:#16a34a;
+    --vermelho:#dc2626;
+    --sombra:0 8px 25px rgba(60,30,100,.10);
 }
 
 body{
-    background:#f5f7fb;
-    color:#1f2937;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--fundo);
+    color:var(--texto);
+    padding-bottom:85px;
 }
 
-/* HEADER */
-
-header{
-    background:linear-gradient(135deg,#111827,#1e3a8a);
-    color:white;
-    padding:22px 20px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 3px 15px rgba(0,0,0,.18);
-}
-
-header h1{
-    font-size:26px;
-    margin-bottom:16px;
-}
-
-.menu-btn{
-    position:absolute;
-    left:18px;
-    top:18px;
-    background:none;
-    border:0;
-    color:white;
-    font-size:27px;
+button{
+    font-family:inherit;
     cursor:pointer;
+    border:none;
 }
 
-nav{
+.header{
+    background:linear-gradient(135deg,var(--roxo-escuro),var(--roxo),var(--rosa));
+    color:white;
+    padding:25px 18px 28px;
+    border-radius:0 0 28px 28px;
+}
+
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:600px;
+    margin:auto;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+}
+
+.logo h1{
+    font-size:20px;
+}
+
+.logo span{
+    display:block;
+    font-size:12px;
+    opacity:.85;
+    margin-top:3px;
+}
+
+.header-text{
+    max-width:600px;
+    margin:25px auto 0;
+}
+
+.header-text h2{
+    font-size:27px;
+    line-height:1.15;
+}
+
+.header-text p{
+    margin-top:8px;
+    opacity:.9;
+}
+
+.open-status{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:13px;
+    background:rgba(255,255,255,.18);
+    padding:7px 11px;
+    border-radius:30px;
+    font-size:12px;
+}
+
+.green-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#86efac;
+}
+
+.container{
+    max-width:600px;
+    margin:auto;
+    padding:18px;
+}
+
+.search{
+    background:white;
+    border-radius:15px;
+    padding:13px 15px;
+    box-shadow:var(--sombra);
+    display:flex;
+    gap:10px;
+    margin-top:-5px;
+}
+
+.search input{
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:15px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:25px 0 13px;
+}
+
+.section-title h2{
+    font-size:20px;
+}
+
+.section-title span{
+    color:var(--roxo);
+    font-size:13px;
+    font-weight:bold;
+}
+
+.promo{
+    background:linear-gradient(135deg,#fff,#f3e8ff);
+    border:1px solid #e9d5ff;
+    border-radius:20px;
+    padding:18px;
+    box-shadow:var(--sombra);
+    position:relative;
+    overflow:hidden;
+}
+
+.promo::after{
+    content:"🍧";
+    position:absolute;
+    right:15px;
+    bottom:-8px;
+    font-size:75px;
+    opacity:.15;
+}
+
+.promo small{
+    color:var(--roxo);
+    font-weight:bold;
+}
+
+.promo h3{
+    margin-top:5px;
+    font-size:20px;
+}
+
+.promo p{
+    margin-top:5px;
+    color:var(--cinza);
+    font-size:14px;
+    max-width:75%;
+}
+
+.promo button{
+    margin-top:13px;
+    background:var(--roxo);
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.categories{
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    padding-bottom:5px;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category{
+    white-space:nowrap;
+    background:white;
+    border:1px solid #e5e7eb;
+    padding:10px 14px;
+    border-radius:30px;
+    font-size:13px;
+}
+
+.category.active{
+    background:var(--roxo);
+    color:white;
+    border-color:var(--roxo);
+}
+
+.products{
+    display:grid;
+    gap:13px;
+}
+
+.product{
+    background:white;
+    border-radius:18px;
+    padding:13px;
+    display:flex;
+    gap:13px;
+    box-shadow:var(--sombra);
+}
+
+.product-image{
+    width:88px;
+    height:88px;
+    min-width:88px;
+    border-radius:15px;
+    background:linear-gradient(145deg,#4c1d95,#a855f7,#f472b6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+}
+
+.product-info{
+    flex:1;
+}
+
+.product-info h3{
+    font-size:16px;
+}
+
+.product-info p{
+    color:var(--cinza);
+    font-size:12px;
+    line-height:1.4;
+    margin-top:4px;
+}
+
+.product-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:9px;
+}
+
+.price{
+    font-weight:bold;
+    color:var(--roxo-escuro);
+}
+
+.add{
+    background:var(--roxo);
+    color:white;
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    font-size:20px;
+}
+
+.loyalty{
+    margin-top:25px;
+    background:linear-gradient(135deg,#4c1d95,#7c3aed);
+    color:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
+.loyalty-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.loyalty h3{
+    font-size:18px;
+}
+
+.points{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.progress{
+    margin-top:15px;
+    height:9px;
+    background:rgba(255,255,255,.2);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress div{
+    height:100%;
+    width:65%;
+    background:#f9a8d4;
+}
+
+.loyalty p{
+    font-size:12px;
+    opacity:.9;
+    margin-top:9px;
+}
+
+.info-card{
+    background:white;
+    border-radius:18px;
+    padding:17px;
+    box-shadow:var(--sombra);
+}
+
+.info-line{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.info-line:last-child{
+    border-bottom:none;
+}
+
+.info-icon{
+    font-size:20px;
+}
+
+.info-line strong{
+    font-size:14px;
+}
+
+.info-line span{
+    display:block;
+    font-size:12px;
+    color:var(--cinza);
+    margin-top:3px;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:70px;
+    background:white;
+    border-top:1px solid #e5e7eb;
     display:flex;
     justify-content:center;
+    z-index:100;
+    box-shadow:0 -5px 20px rgba(0,0,0,.08);
+}
+
+.nav-inner{
+    width:100%;
+    max-width:600px;
+    display:flex;
+    justify-content:space-around;
+}
+
+.nav-btn{
+    background:none;
+    color:#777;
+    font-size:11px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    width:25%;
+}
+
+.nav-btn span{
+    font-size:22px;
+}
+
+.nav-btn.active{
+    color:var(--roxo);
+    font-weight:bold;
+}
+
+.badge{
+    position:absolute;
+    margin-left:18px;
+    margin-top:-7px;
+    background:var(--rosa);
+    color:white;
+    border-radius:20px;
+    min-width:18px;
+    height:18px;
+    font-size:10px;
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.modal-bg{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:200;
+    display:none;
+    align-items:flex-end;
+}
+
+.modal-bg.show{
+    display:flex;
+}
+
+.modal{
+    background:white;
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    border-radius:25px 25px 0 0;
+    max-height:90vh;
+    overflow:auto;
+    padding:22px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.close{
+    background:#f3f4f6;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    font-size:20px;
+}
+
+.option-title{
+    margin-top:20px;
+    margin-bottom:9px;
+    font-weight:bold;
+}
+
+.options{
+    display:flex;
     flex-wrap:wrap;
     gap:8px;
 }
 
-nav button{
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.15);
-    color:white;
-    padding:10px 14px;
+.option{
+    border:1px solid #ddd;
+    background:white;
+    padding:9px 12px;
     border-radius:10px;
-    cursor:pointer;
+    font-size:13px;
 }
 
-/* MENU MOBILE */
-
-.mobile-menu{
-    display:none;
-    background:#111827;
-    padding:12px;
-}
-
-.mobile-menu button{
-    width:100%;
-    padding:13px;
-    margin:4px 0;
-    background:#1f2937;
-    border:0;
-    color:white;
-    border-radius:8px;
-    text-align:left;
-    cursor:pointer;
-}
-
-/* CONTAINER */
-
-.container{
-    width:min(1100px,92%);
-    margin:auto;
-}
-
-/* HERO */
-
-.hero{
-    text-align:center;
-    padding:65px 20px 50px;
-}
-
-.hero h2{
-    font-size:42px;
-    color:#111827;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:18px;
-    color:#6b7280;
-    max-width:650px;
-    margin:auto;
-    line-height:1.6;
-}
-
-/* SEÇÕES */
-
-section{
-    padding:35px 0;
-}
-
-.section-title{
-    text-align:center;
-    font-size:28px;
-    margin-bottom:25px;
-    color:#111827;
-}
-
-/* AÇÕES */
-
-.acoes{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-    gap:15px;
-    margin:20px 0;
-}
-
-.acao{
-    background:white;
-    border:0;
-    padding:20px;
-    border-radius:13px;
-    cursor:pointer;
-    font-size:16px;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-    transition:.2s;
-}
-
-.acao:hover{
-    transform:translateY(-3px);
-    background:#eff6ff;
-}
-
-/* CULTOS */
-
-.cultos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:18px;
-}
-
-.culto{
-    background:white;
-    border-radius:15px;
-    padding:24px 18px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-    transition:.2s;
-}
-
-.culto:hover{
-    transform:translateY(-4px);
-}
-
-.culto .icone{
-    font-size:35px;
-    margin-bottom:12px;
-}
-
-.culto h3{
-    margin-bottom:10px;
-    color:#1e3a8a;
-}
-
-.culto p{
-    color:#555;
-    line-height:1.5;
-}
-
-/* EVENTOS */
-
-.eventos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.evento{
-    background:white;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.evento .icone{
-    font-size:34px;
-    margin-bottom:10px;
-}
-
-.evento h3{
-    color:#111827;
-    margin-bottom:8px;
-}
-
-.data{
-    color:#1d4ed8;
+.option.selected{
+    background:#ede9fe;
+    border-color:var(--roxo);
+    color:var(--roxo-escuro);
     font-weight:bold;
-    margin-bottom:12px;
 }
 
-.evento p{
-    color:#666;
-    line-height:1.5;
-}
-
-/* LOCALIZAÇÃO */
-
-.localizacao{
-    background:white;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.endereco{
-    text-align:center;
-    font-size:18px;
-    margin-bottom:20px;
-}
-
-.mapa{
-    width:100%;
-    height:350px;
-    border:0;
-    border-radius:12px;
-}
-
-/* FOTOS */
-
-.fotos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-}
-
-.foto{
-    height:190px;
+.total-box{
+    margin-top:20px;
+    background:#f5f3ff;
+    padding:15px;
     border-radius:14px;
-    overflow:hidden;
-    background:#ddd;
-}
-
-.foto img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.3s;
-}
-
-.foto img:hover{
-    transform:scale(1.05);
-}
-
-/* CONTATO */
-
-.contato{
-    text-align:center;
-    background:white;
-    border-radius:15px;
-    padding:30px 20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.contato p{
-    margin-bottom:20px;
-    color:#666;
-}
-
-.btn{
-    display:inline-block;
-    border:0;
-    padding:13px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:bold;
-    transition:.2s;
-    text-decoration:none;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.btn-primary{
-    background:#2563eb;
-    color:white;
-}
-
-.btn-success{
-    background:#16a34a;
-    color:white;
-}
-
-.btn-dark{
-    background:#111827;
-    color:white;
-}
-
-.botoes{
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
+    justify-content:space-between;
+    font-weight:bold;
+}
+
+.main-btn{
+    width:100%;
+    margin-top:13px;
+    padding:14px;
+    border-radius:13px;
+    background:var(--roxo);
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.cart-empty{
+    text-align:center;
+    padding:45px 20px;
+    color:var(--cinza);
+}
+
+.cart-empty div{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.cart-item{
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:10px;
+    box-shadow:var(--sombra);
+}
+
+.cart-item-top{
+    display:flex;
+    justify-content:space-between;
     gap:10px;
 }
 
-/* REDES */
-
-.redes{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
+.cart-item small{
+    color:var(--cinza);
+    display:block;
+    margin-top:5px;
 }
 
-.rede{
+.remove{
+    color:var(--vermelho);
+    background:none;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.cart-total{
     background:white;
-    padding:18px 22px;
-    border-radius:12px;
-    text-decoration:none;
-    color:#111827;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-    transition:.2s;
+    padding:18px;
+    border-radius:18px;
+    box-shadow:var(--sombra);
+    margin-top:15px;
 }
 
-.rede:hover{
-    transform:translateY(-3px);
+.cart-total div{
+    display:flex;
+    justify-content:space-between;
+    margin:7px 0;
 }
 
-/* FOOTER */
+.cart-total .grand{
+    font-size:21px;
+    font-weight:bold;
+    color:var(--roxo-escuro);
+    border-top:1px solid #eee;
+    padding-top:12px;
+    margin-top:12px;
+}
 
-footer{
-    margin-top:50px;
-    background:#111827;
-    color:white;
+.form-group{
+    margin-top:13px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:11px;
+    outline:none;
+    font-family:inherit;
+}
+
+.success{
     text-align:center;
-    padding:28px 20px;
+    padding:35px 15px;
 }
 
-footer p{
-    opacity:.8;
-    margin:5px;
-}
-
-/* MODAL */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:2000;
+.success-icon{
+    width:70px;
+    height:70px;
+    background:#dcfce7;
+    color:var(--verde);
+    border-radius:50%;
+    display:flex;
     align-items:center;
     justify-content:center;
-    padding:20px;
+    font-size:35px;
+    margin:0 auto 15px;
 }
 
-.modal-content{
-    background:white;
-    width:min(500px,100%);
-    max-height:90vh;
-    overflow:auto;
-    border-radius:16px;
-    padding:25px;
-    position:relative;
-}
-
-.fechar{
-    position:absolute;
-    right:18px;
-    top:14px;
-    border:0;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.modal-content h2{
-    margin-bottom:18px;
-    color:#111827;
-}
-
-.modal-content p{
-    color:#666;
-    line-height:1.6;
-    margin-bottom:15px;
-}
-
-input,
-textarea{
-    width:100%;
-    padding:13px;
-    border:1px solid #d1d5db;
-    border-radius:9px;
-    margin:7px 0 14px;
-    font-size:15px;
-}
-
-textarea{
-    min-height:130px;
-    resize:vertical;
-}
-
-label{
-    font-weight:bold;
-    font-size:14px;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:700px){
-
-    header h1{
-        font-size:21px;
-        margin-left:30px;
-        margin-right:30px;
+@media(min-width:601px){
+    .bottom-nav{
+        left:50%;
+        right:auto;
+        transform:translateX(-50%);
+        width:600px;
     }
 
-    nav{
-        display:none;
-    }
-
-    .hero{
-        padding-top:45px;
-    }
-
-    .hero h2{
-        font-size:32px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .mapa{
-        height:280px;
-    }
-
-    .foto{
-        height:170px;
+    body{
+        padding-bottom:90px;
     }
 }
-</style></head><body><header><button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menu">
-    ☰
-</button>
+</style>
+</head>
 
-<h1>Igreja Encontros de Fé</h1>
+<body>
 
-<nav>
-    <button onclick="irPara('inicio')">🏠 Início</button>
-    <button onclick="abrirEventos()">📢 Anúncios</button>
-    <button onclick="irPara('fotos')">📷 Fotos</button>
-    <button onclick="irPara('contato')">📞 Contato</button>
-</nav>
+<!-- ================= HEADER ================= -->
 
-</header><div class="mobile-menu" id="mobileMenu"><button onclick="irPara('inicio')">🏠 Início</button>
-<button onclick="abrirEventos()">📢 Anúncios</button>
-<button onclick="irPara('fotos')">📷 Fotos</button>
-<button onclick="irPara('contato')">📞 Contato</button>
+<header class="header">
 
-</div><main id="inicio"><div class="container"><section class="hero">
+    <div class="header-top">
 
-    <h2>Bem-vindo!</h2>
+        <div class="logo">
 
-    <p>
-        Um lugar para adorar a Deus, crescer na fé
-        e viver em comunhão.
-    </p>
+            <div class="logo-icon">🍧</div>
 
-</section>
+            <div>
+                <h1>Cantinho do Açaí</h1>
+                <span>Portão • RS</span>
+            </div>
 
-<div class="acoes">
-
-    <button class="acao" onclick="abrirModal('oracao')">
-        🙏<br><br>
-        Pedidos de Oração
-    </button>
-
-    <button class="acao" onclick="abrirModal('sugestao')">
-        💡<br><br>
-        Sugestões
-    </button>
-
-    <button class="acao" onclick="abrirModal('biblioteca')">
-        📚<br><br>
-        Biblioteca
-    </button>
-
-    <button class="acao" onclick="abrirModal('login')">
-        🔐<br><br>
-        Login
-    </button>
-
-</div>
-
-<section>
-
-    <h2 class="section-title">
-        Horários dos Cultos
-    </h2>
-
-    <div class="cultos">
-
-        <div class="culto">
-            <div class="icone">⛪</div>
-            <h3>Domingos (Família)</h3>
-            <p>9H e às 19:30</p>
-        </div>
-
-        <div class="culto">
-            <div class="icone">🙏</div>
-            <h3>Segundas (Oração)</h3>
-            <p>19h30</p>
-        </div>
-
-        <div class="culto">
-            <div class="icone">✝️</div>
-            <h3>Terças (Libertação)</h3>
-            <p>15H</p>
-        </div>
-
-        <div class="culto">
-            <div class="icone">✝️</div>
-            <h3>Quartas (Libertação)</h3>
-            <p>20H</p>
-        </div>
-
-        <div class="culto">
-            <div class="icone">📖</div>
-            <h3>Sábados (Adolescentes e Jovens)</h3>
-            <p>18H e às 19:30</p>
         </div>
 
     </div>
 
-</section>
+    <div class="header-text">
 
-<section id="eventos">
+        <h2>Seu açaí do seu jeito 💜</h2>
 
-    <h2 class="section-title">
-        🎉 Próximos Eventos
-    </h2>
+        <p>Monte seu pedido e aproveite!</p>
 
-    <div class="eventos">
+        <div class="open-status">
+            <span class="green-dot"></span>
+            Aberto agora
+        </div>
 
-        <div class="evento">
+    </div>
 
-            <div class="icone">❤️</div>
+</header>
 
-            <h3>Jantar de Casais</h3>
 
-            <div class="data">
-                📅 13/06
+<!-- ================= INÍCIO ================= -->
+
+<main id="homePage" class="page active">
+
+    <div class="container">
+
+        <div class="search">
+
+            🔎
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Buscar no cardápio..."
+                oninput="buscarProdutos()"
+            >
+
+        </div>
+
+
+        <div class="section-title">
+            <h2>🔥 Promoção</h2>
+            <span>Hoje</span>
+        </div>
+
+        <div class="promo">
+
+            <small>OFERTA ESPECIAL</small>
+
+            <h3>Açaí + 3 complementos</h3>
+
+            <p>
+                Escolha seu tamanho e monte do seu jeito.
+            </p>
+
+            <button onclick="abrirMontador()">
+                Montar agora
+            </button>
+
+        </div>
+
+
+        <div class="section-title">
+            <h2>🍧 Mais pedidos</h2>
+        </div>
+
+        <div id="homeProducts" class="products"></div>
+
+
+        <div class="loyalty">
+
+            <div class="loyalty-top">
+
+                <div>
+                    <h3>🎁 Clube do Açaí</h3>
+                    <p>Acumule pontos em seus pedidos</p>
+                </div>
+
+                <div class="points">65 pts</div>
+
+            </div>
+
+            <div class="progress">
+                <div></div>
             </div>
 
             <p>
-                Uma noite especial de comunhão,
-                louvor e fortalecimento dos laços familiares.
+                Faltam 35 pontos para liberar sua próxima recompensa!
             </p>
 
         </div>
 
-        <div class="evento">
 
-            <div class="icone">🔥</div>
+        <div class="section-title">
+            <h2>📍 Onde estamos</h2>
+        </div>
 
-            <h3>Jovens Portão + Estância Velha</h3>
+        <div class="info-card">
 
-            <div class="data">
-                📅 11/07
+            <div class="info-line">
+
+                <div class="info-icon">📍</div>
+
+                <div>
+                    <strong>Cantinho do Açaí</strong>
+                    <span>Portão • Rio Grande do Sul</span>
+                </div>
+
+            </div>
+
+            <div class="info-line">
+
+                <div class="info-icon">🕐</div>
+
+                <div>
+                    <strong>Horário de atendimento</strong>
+                    <span>Consulte o horário atualizado da loja</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= CARDÁPIO ================= -->
+
+<main id="menuPage" class="page">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🍧 Cardápio</h2>
+        </div>
+
+        <div class="categories">
+
+            <button class="category active">
+                Todos
+            </button>
+
+            <button class="category">
+                Açaí
+            </button>
+
+            <button class="category">
+                Bebidas
+            </button>
+
+            <button class="category">
+                Complementos
+            </button>
+
+        </div>
+
+        <div
+            id="menuProducts"
+            class="products"
+            style="margin-top:15px;"
+        ></div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FIDELIDADE ================= -->
+
+<main id="loyaltyPage" class="page">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🎁 Clube do Açaí</h2>
+        </div>
+
+        <div class="loyalty">
+
+            <div class="loyalty-top">
+
+                <div>
+                    <h3>Seus pontos</h3>
+                    <p>Cliente demonstração</p>
+                </div>
+
+                <div class="points">65</div>
+
+            </div>
+
+            <div class="progress">
+                <div></div>
             </div>
 
             <p>
-                Encontro especial de jovens para
-                comunhão, adoração e integração.
+                65 de 100 pontos
             </p>
 
         </div>
 
-        <div class="evento">
 
-            <div class="icone">📖</div>
+        <div class="section-title">
+            <h2>🏆 Recompensas</h2>
+        </div>
 
-            <h3>Evangelismo</h3>
+        <div class="info-card">
 
-            <div class="data">
-                📅 25/07
+            <div class="info-line">
+                <div class="info-icon">🥤</div>
+                <div>
+                    <strong>100 pontos</strong>
+                    <span>Ganhe um complemento grátis.</span>
+                </div>
             </div>
 
-            <p>
-                Saída evangelística para compartilhar
-                o amor de Cristo com nossa cidade.
-            </p>
+            <div class="info-line">
+                <div class="info-icon">🍧</div>
+                <div>
+                    <strong>200 pontos</strong>
+                    <span>Ganhe uma recompensa especial.</span>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
-</section>
+</main>
 
-<section>
 
-    <h2 class="section-title">
-        📍 Localização
-    </h2>
+<!-- ================= CARRINHO ================= -->
 
-    <div class="localizacao">
+<main id="cartPage" class="page">
 
-        <div class="endereco">
-            Avenida Ceará, 944 - Portão/RS
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🛒 Seu pedido</h2>
         </div>
 
-        <iframe
-            class="mapa"
-            src="https://www.google.com/maps?q=Avenida+Ceará,+944,+Portão,+RS&output=embed"
-            loading="lazy"
-            title="Localização da Igreja Encontros de Fé">
-        </iframe>
+        <div id="cartContent"></div>
 
     </div>
 
-</section>
+</main>
 
-<section id="fotos">
 
-    <h2 class="section-title">
-        Nossos Momentos
-    </h2>
+<!-- ================= BOTTOM NAV ================= -->
 
-    <div class="fotos">
+<nav class="bottom-nav">
 
-        <div class="foto">
-            <img
-                src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=700&q=80"
-                alt="Culto">
-        </div>
-
-        <div class="foto">
-            <img
-                src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=700&q=80"
-                alt="Igreja">
-        </div>
-
-        <div class="foto">
-            <img
-                src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=700&q=80"
-                alt="Encontro">
-        </div>
-
-        <div class="foto">
-            <img
-                src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=700&q=80"
-                alt="Encontro da igreja">
-        </div>
-
-        <div class="foto">
-            <img
-                src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=700&q=80"
-                alt="Culto">
-        </div>
-
-    </div>
-
-</section>
-
-<section id="contato">
-
-    <h2 class="section-title">
-        📞 Contato
-    </h2>
-
-    <div class="contato">
-
-        <p>
-            Entre em contato conosco através do WhatsApp.
-        </p>
-
-        <div class="botoes">
-
-            <!--
-            COLOQUE O NÚMERO DA IGREJA AQUI.
-            Exemplo:
-            https://wa.me/5551999999999
-            -->
-
-            <a
-                class="btn btn-success"
-                href="https://wa.me/"
-                target="_blank"
-                rel="noopener">
-                💬 WhatsApp
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section>
-
-    <h2 class="section-title">
-        📱 Redes Sociais
-    </h2>
-
-    <div class="redes">
-
-        <a
-            class="rede"
-            href="https://www.instagram.com/encontrosdefeportao/"
-            target="_blank"
-            rel="noopener">
-
-            📷 Igreja
-            <br>
-            @encontrosdefeportao
-
-        </a>
-
-        <a
-            class="rede"
-            href="https://www.instagram.com/jovensefportao/"
-            target="_blank"
-            rel="noopener">
-
-            🔥 Jovens EF
-            <br>
-            @jovensefportao
-
-        </a>
-
-    </div>
-
-</section>
-
-</div></main><footer><p>© 2026 Igreja Encontros de Fé</p>
-<p>Portão - RS</p>
-
-</footer><!-- MODAL ORAÇÃO --><div class="modal" id="modal-oracao"><div class="modal-content">
-
-    <button class="fechar" onclick="fecharModal('oracao')">
-        ×
-    </button>
-
-    <h2>🙏 Pedido de Oração</h2>
-
-    <p>
-        Compartilhe seu pedido de oração conosco.
-    </p>
-
-    <form onsubmit="enviarFormulario(event,'Pedido de oração')">
-
-        <label for="nomeOracao">Nome</label>
-
-        <input
-            type="text"
-            id="nomeOracao"
-            required
-            placeholder="Seu nome">
-
-        <label for="pedidoOracao">Pedido</label>
-
-        <textarea
-            id="pedidoOracao"
-            required
-            placeholder="Digite seu pedido de oração..."></textarea>
-
-        <button class="btn btn-primary" type="submit">
-            Enviar Pedido
-        </button>
-
-    </form>
-
-</div>
-
-</div><!-- MODAL SUGESTÃO --><div class="modal" id="modal-sugestao"><div class="modal-content">
-
-    <button class="fechar" onclick="fecharModal('sugestao')">
-        ×
-    </button>
-
-    <h2>💡 Sugestões</h2>
-
-    <p>
-        Tem alguma sugestão para nossa igreja?
-        Envie para nós.
-    </p>
-
-    <form onsubmit="enviarFormulario(event,'Sugestão')">
-
-        <label for="nomeSugestao">Nome</label>
-
-        <input
-            type="text"
-            id="nomeSugestao"
-            required
-            placeholder="Seu nome">
-
-        <label for="textoSugestao">Sugestão</label>
-
-        <textarea
-            id="textoSugestao"
-            required
-            placeholder="Digite sua sugestão..."></textarea>
-
-        <button class="btn btn-primary" type="submit">
-            Enviar Sugestão
-        </button>
-
-    </form>
-
-</div>
-
-</div><!-- MODAL BIBLIOTECA --><div class="modal" id="modal-biblioteca"><div class="modal-content">
-
-    <button class="fechar" onclick="fecharModal('biblioteca')">
-        ×
-    </button>
-
-    <h2>📚 Biblioteca</h2>
-
-    <p>
-        Materiais, estudos bíblicos e conteúdos
-        disponibilizados pela Igreja Encontros de Fé.
-    </p>
-
-    <p>
-        Em breve novos materiais estarão disponíveis.
-    </p>
-
-    <button
-        class="btn btn-dark"
-        onclick="fecharModal('biblioteca')">
-
-        Fechar
-
-    </button>
-
-</div>
-
-</div><!-- MODAL LOGIN --><div class="modal" id="modal-login"><div class="modal-content">
-
-    <button class="fechar" onclick="fecharModal('login')">
-        ×
-    </button>
-
-    <h2>🔐 Login</h2>
-
-    <p>
-        Área administrativa da igreja.
-    </p>
-
-    <form onsubmit="login(event)">
-
-        <label for="email">E-mail</label>
-
-        <input
-            type="email"
-            id="email"
-            required
-            placeholder="seu@email.com">
-
-        <label for="senha">Senha</label>
-
-        <input
-            type="password"
-            id="senha"
-            required
-            placeholder="Sua senha">
+    <div class="nav-inner">
 
         <button
-            type="submit"
-            class="btn btn-primary">
+            class="nav-btn active"
+            onclick="mostrarPagina('home')"
+            id="navHome"
+        >
+            <span>🏠</span>
+            Início
+        </button>
 
-            Entrar
+        <button
+            class="nav-btn"
+            onclick="mostrarPagina('menu')"
+            id="navMenu"
+        >
+            <span>🍧</span>
+            Cardápio
+        </button>
+
+        <button
+            class="nav-btn"
+            onclick="mostrarPagina('loyalty')"
+            id="navLoyalty"
+        >
+            <span>🎁</span>
+            Fidelidade
+        </button>
+
+        <button
+            class="nav-btn"
+            onclick="mostrarPagina('cart')"
+            id="navCart"
+            style="position:relative;"
+        >
+
+            <span>
+                🛒
+                <b id="cartBadge" class="badge">0</b>
+            </span>
+
+            Pedido
 
         </button>
 
-    </form>
+    </div>
+
+</nav>
+
+
+<!-- ================= MODAL MONTAR AÇAÍ ================= -->
+
+<div id="builderModal" class="modal-bg">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h2>🥣 Monte seu açaí</h2>
+
+            <button
+                class="close"
+                onclick="fecharMontador()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="option-title">
+            Escolha o tamanho
+        </div>
+
+        <div class="options">
+
+            <button
+                class="option selected"
+                data-size="300"
+                data-price="14.90"
+                onclick="selecionarTamanho(this)"
+            >
+                300 ml — R$ 14,90
+            </button>
+
+            <button
+                class="option"
+                data-size="500"
+                data-price="19.90"
+                onclick="selecionarTamanho(this)"
+            >
+                500 ml — R$ 19,90
+            </button>
+
+            <button
+                class="option"
+                data-size="700"
+                data-price="24.90"
+                onclick="selecionarTamanho(this)"
+            >
+                700 ml — R$ 24,90
+            </button>
+
+        </div>
+
+
+        <div class="option-title">
+            Complementos
+        </div>
+
+        <div class="options">
+
+            <button
+                class="option"
+                data-extra="Banana"
+                data-extra-price="1.50"
+                onclick="toggleExtra(this)"
+            >
+                🍌 Banana + R$ 1,50
+            </button>
+
+            <button
+                class="option"
+                data-extra="Morango"
+                data-extra-price="2.00"
+                onclick="toggleExtra(this)"
+            >
+                🍓 Morango + R$ 2,00
+            </button>
+
+            <button
+                class="option"
+                data-extra="Granola"
+                data-extra-price="1.50"
+                onclick="toggleExtra(this)"
+            >
+                🌾 Granola + R$ 1,50
+            </button>
+
+            <button
+                class="option"
+                data-extra="Leite em pó"
+                data-extra-price="2.00"
+                onclick="toggleExtra(this)"
+            >
+                🥛 Leite em pó + R$ 2,00
+            </button>
+
+            <button
+                class="option"
+                data-extra="Paçoca"
+                data-extra-price="2.00"
+                onclick="toggleExtra(this)"
+            >
+                🥜 Paçoca + R$ 2,00
+            </button>
+
+            <button
+                class="option"
+                data-extra="Leite condensado"
+                data-extra-price="2.50"
+                onclick="toggleExtra(this)"
+            >
+                🍯 Leite condensado + R$ 2,50
+            </button>
+
+        </div>
+
+
+        <div class="total-box">
+
+            <span>Total</span>
+
+            <span id="builderTotal">
+                R$ 14,90
+            </span>
+
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="adicionarAcaiMontado()"
+        >
+            Adicionar ao pedido
+        </button>
+
+    </div>
 
 </div>
 
-</div><script>
 
-/* NAVEGAÇÃO */
+<!-- ================= MODAL CHECKOUT ================= -->
 
-function irPara(id){
+<div id="checkoutModal" class="modal-bg">
 
-    const elemento = document.getElementById(id);
+    <div class="modal">
 
-    if(elemento){
+        <div class="modal-header">
 
-        elemento.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+            <h2>📋 Finalizar pedido</h2>
 
+            <button
+                class="close"
+                onclick="fecharCheckout()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Seu nome</label>
+
+            <input
+                id="customerName"
+                type="text"
+                placeholder="Digite seu nome"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Forma de recebimento</label>
+
+            <select id="deliveryType">
+
+                <option value="Retirada na loja">
+                    Retirada na loja
+                </option>
+
+                <option value="Entrega">
+                    Entrega
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Forma de pagamento</label>
+
+            <select id="paymentType">
+
+                <option>Pix</option>
+                <option>Dinheiro</option>
+                <option>Cartão</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Observação</label>
+
+            <textarea
+                id="orderNote"
+                rows="3"
+                placeholder="Alguma observação?"
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="main-btn"
+            onclick="finalizarPedido()"
+        >
+            Enviar pedido pelo WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CONFIGURAÇÕES
+========================================================= */
+
+const WHATSAPP = "5551999999999";
+
+/*
+   TROQUE o número acima pelo WhatsApp REAL
+   do estabelecimento.
+
+   Formato:
+   55 + DDD + número
+
+   Exemplo:
+   5551991234567
+*/
+
+
+/* =========================================================
+   PRODUTOS
+========================================================= */
+
+const produtos = [
+
+    {
+        id:1,
+        nome:"Açaí 300 ml",
+        descricao:"Açaí cremoso para matar a vontade.",
+        preco:14.90,
+        emoji:"🍧"
+    },
+
+    {
+        id:2,
+        nome:"Açaí 500 ml",
+        descricao:"Tamanho ideal para aproveitar bastante.",
+        preco:19.90,
+        emoji:"🍧"
+    },
+
+    {
+        id:3,
+        nome:"Açaí 700 ml",
+        descricao:"Para quem realmente ama açaí.",
+        preco:24.90,
+        emoji:"🍧"
+    },
+
+    {
+        id:4,
+        nome:"Açaí Especial",
+        descricao:"Açaí com complementos selecionados.",
+        preco:26.90,
+        emoji:"🍓"
+    },
+
+    {
+        id:5,
+        nome:"Banana",
+        descricao:"Complemento para seu açaí.",
+        preco:1.50,
+        emoji:"🍌"
+    },
+
+    {
+        id:6,
+        nome:"Morango",
+        descricao:"Morangos para deixar seu açaí ainda melhor.",
+        preco:2.00,
+        emoji:"🍓"
+    },
+
+    {
+        id:7,
+        nome:"Granola",
+        descricao:"Crocante e deliciosa.",
+        preco:1.50,
+        emoji:"🌾"
+    },
+
+    {
+        id:8,
+        nome:"Leite em pó",
+        descricao:"Clássico para combinar com açaí.",
+        preco:2.00,
+        emoji:"🥛"
     }
 
-    fecharMenu();
-}
+];
 
 
-/* MENU MOBILE */
+/* =========================================================
+   CARRINHO
+========================================================= */
 
-function toggleMenu(){
-
-    const menu = document.getElementById("mobileMenu");
-
-    if(menu.style.display === "block"){
-        menu.style.display = "none";
-    }else{
-        menu.style.display = "block";
-    }
-
-}
+let carrinho = [];
 
 
-function fecharMenu(){
+/* =========================================================
+   RENDERIZA PRODUTOS
+========================================================= */
 
-    const menu = document.getElementById("mobileMenu");
+function renderProdutos(lista, elemento){
 
-    if(menu){
-        menu.style.display = "none";
-    }
+    elemento.innerHTML = "";
 
-}
+    lista.forEach(produto => {
 
+        const div = document.createElement("div");
 
-/* EVENTOS */
+        div.className = "product";
 
-function abrirEventos(){
+        div.innerHTML = `
 
-    const elemento = document.getElementById("eventos");
+            <div class="product-image">
+                ${produto.emoji}
+            </div>
 
-    if(elemento){
+            <div class="product-info">
 
-        elemento.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+                <h3>${produto.nome}</h3>
 
-    }
+                <p>
+                    ${produto.descricao}
+                </p>
 
-    fecharMenu();
-}
+                <div class="product-bottom">
 
+                    <span class="price">
+                        R$ ${formatar(produto.preco)}
+                    </span>
 
-/* MODAIS */
+                    <button
+                        class="add"
+                        onclick="adicionarProduto(${produto.id})"
+                    >
+                        +
+                    </button>
 
-function abrirModal(nome){
+                </div>
 
-    const modal = document.getElementById("modal-" + nome);
+            </div>
 
-    if(modal){
+        `;
 
-        modal.style.display = "flex";
+        elemento.appendChild(div);
 
-        document.body.style.overflow = "hidden";
-    }
-
-}
-
-
-function fecharModal(nome){
-
-    const modal = document.getElementById("modal-" + nome);
-
-    if(modal){
-
-        modal.style.display = "none";
-
-        document.body.style.overflow = "";
-    }
-
-}
-
-
-/* FECHAR MODAL CLICANDO FORA */
-
-window.addEventListener("click",function(event){
-
-    if(event.target.classList.contains("modal")){
-
-        event.target.style.display = "none";
-
-        document.body.style.overflow = "";
-
-    }
-
-});
-
-
-/* FECHAR COM ESC */
-
-window.addEventListener("keydown",function(event){
-
-    if(event.key === "Escape"){
-
-        document.querySelectorAll(".modal").forEach(function(modal){
-
-            modal.style.display = "none";
-
-        });
-
-        document.body.style.overflow = "";
-
-    }
-
-});
-
-
-/* FORMULÁRIOS */
-
-function enviarFormulario(event,tipo){
-
-    event.preventDefault();
-
-    alert(
-        tipo +
-        " recebido!\n\n" +
-        "Obrigado por participar e contribuir com a igreja."
-    );
-
-    event.target.reset();
-
-    document.querySelectorAll(".modal").forEach(function(modal){
-        modal.style.display = "none";
     });
 
-    document.body.style.overflow = "";
+}
+
+
+/* =========================================================
+   FORMATAÇÃO
+========================================================= */
+
+function formatar(valor){
+
+    return valor.toFixed(2).replace(".",",");
 
 }
 
 
-/* LOGIN */
+/* =========================================================
+   ADICIONAR PRODUTO
+========================================================= */
 
-function login(event){
+function adicionarProduto(id){
 
-    event.preventDefault();
+    const produto = produtos.find(p => p.id === id);
 
-    const email =
-        document.getElementById("email").value;
+    if(!produto) return;
 
-    alert(
-        "Login recebido para:\n\n" +
-        email +
-        "\n\n" +
-        "Esta versão é totalmente independente e não possui servidor de autenticação."
+    carrinho.push({
+
+        nome:produto.nome,
+        preco:produto.preco,
+        detalhes:""
+
+    });
+
+    atualizarCarrinho();
+
+    mostrarPagina("cart");
+
+}
+
+
+/* =========================================================
+   MONTADOR
+========================================================= */
+
+let tamanhoSelecionado = {
+    nome:"300 ml",
+    preco:14.90
+};
+
+let extrasSelecionados = [];
+
+
+function abrirMontador(){
+
+    document
+        .getElementById("builderModal")
+        .classList.add("show");
+
+}
+
+
+function fecharMontador(){
+
+    document
+        .getElementById("builderModal")
+        .classList.remove("show");
+
+}
+
+
+function selecionarTamanho(botao){
+
+    document
+        .querySelectorAll('[data-size]')
+        .forEach(b => b.classList.remove("selected"));
+
+    botao.classList.add("selected");
+
+    tamanhoSelecionado = {
+
+        nome:botao.dataset.size + " ml",
+
+        preco:parseFloat(botao.dataset.price)
+
+    };
+
+    atualizarTotalMontador();
+
+}
+
+
+function toggleExtra(botao){
+
+    const nome = botao.dataset.extra;
+
+    const preco = parseFloat(botao.dataset.extraPrice);
+
+    botao.classList.toggle("selected");
+
+    const existente =
+        extrasSelecionados.find(e => e.nome === nome);
+
+    if(existente){
+
+        extrasSelecionados =
+            extrasSelecionados.filter(e => e.nome !== nome);
+
+    }else{
+
+        extrasSelecionados.push({
+            nome,
+            preco
+        });
+
+    }
+
+    atualizarTotalMontador();
+
+}
+
+
+function atualizarTotalMontador(){
+
+    let total = tamanhoSelecionado.preco;
+
+    extrasSelecionados.forEach(extra => {
+
+        total += extra.preco;
+
+    });
+
+    document.getElementById("builderTotal").innerText =
+        "R$ " + formatar(total);
+
+}
+
+
+function adicionarAcaiMontado(){
+
+    let total = tamanhoSelecionado.preco;
+
+    extrasSelecionados.forEach(extra => {
+
+        total += extra.preco;
+
+    });
+
+    const detalhes =
+        extrasSelecionados.length > 0
+        ?
+        " + " +
+        extrasSelecionados.map(e => e.nome).join(", ")
+        :
+        "";
+
+    carrinho.push({
+
+        nome:"Açaí " + tamanhoSelecionado.nome,
+
+        preco:total,
+
+        detalhes:detalhes
+
+    });
+
+    atualizarCarrinho();
+
+    extrasSelecionados = [];
+
+    document
+        .querySelectorAll("[data-extra]")
+        .forEach(b => b.classList.remove("selected"));
+
+    fecharMontador();
+
+    mostrarPagina("cart");
+
+}
+
+
+/* =========================================================
+   CARRINHO
+========================================================= */
+
+function atualizarCarrinho(){
+
+    const content =
+        document.getElementById("cartContent");
+
+    const badge =
+        document.getElementById("cartBadge");
+
+
+    badge.innerText = carrinho.length;
+
+    badge.style.display =
+        carrinho.length
+        ? "flex"
+        : "none";
+
+
+    if(carrinho.length === 0){
+
+        content.innerHTML = `
+
+            <div class="cart-empty">
+
+                <div>🛒</div>
+
+                <h3>Seu pedido está vazio</h3>
+
+                <p style="margin-top:7px;">
+                    Escolha alguma coisa deliciosa.
+                </p>
+
+                <button
+                    class="main-btn"
+                    onclick="mostrarPagina('menu')"
+                    style="max-width:250px;"
+                >
+                    Ver cardápio
+                </button>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+    let html = "";
+
+
+    carrinho.forEach((item,index) => {
+
+        total += item.preco;
+
+        html += `
+
+            <div class="cart-item">
+
+                <div class="cart-item-top">
+
+                    <strong>
+                        ${item.nome}
+                    </strong>
+
+                    <strong>
+                        R$ ${formatar(item.preco)}
+                    </strong>
+
+                </div>
+
+                ${
+                    item.detalhes
+                    ?
+                    `<small>${item.detalhes}</small>`
+                    :
+                    ""
+                }
+
+                <button
+                    class="remove"
+                    onclick="removerItem(${index})"
+                >
+                    Remover
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+        <div class="cart-total">
+
+            <div>
+                <span>Subtotal</span>
+                <span>R$ ${formatar(total)}</span>
+            </div>
+
+            <div class="grand">
+                <span>Total</span>
+                <span>R$ ${formatar(total)}</span>
+            </div>
+
+            <button
+                class="main-btn"
+                onclick="abrirCheckout()"
+            >
+                Finalizar pedido
+            </button>
+
+        </div>
+
+    `;
+
+
+    content.innerHTML = html;
+
+}
+
+
+function removerItem(index){
+
+    carrinho.splice(index,1);
+
+    atualizarCarrinho();
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function abrirCheckout(){
+
+    if(!carrinho.length){
+
+        alert("Seu carrinho está vazio.");
+
+        return;
+
+    }
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("show");
+
+}
+
+
+function fecharCheckout(){
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("show");
+
+}
+
+
+function finalizarPedido(){
+
+    const nome =
+        document
+        .getElementById("customerName")
+        .value.trim();
+
+    if(!nome){
+
+        alert("Digite seu nome.");
+
+        return;
+
+    }
+
+
+    const recebimento =
+        document
+        .getElementById("deliveryType")
+        .value;
+
+    const pagamento =
+        document
+        .getElementById("paymentType")
+        .value;
+
+    const observacao =
+        document
+        .getElementById("orderNote")
+        .value.trim();
+
+
+    let total = 0;
+
+    let mensagem =
+        "🍧 *NOVO PEDIDO - CANTINHO DO AÇAÍ*%0A%0A";
+
+    mensagem +=
+        "👤 Cliente: " +
+        encodeURIComponent(nome) +
+        "%0A";
+
+    mensagem +=
+        "📦 Recebimento: " +
+        encodeURIComponent(recebimento) +
+        "%0A";
+
+    mensagem +=
+        "💳 Pagamento: " +
+        encodeURIComponent(pagamento) +
+        "%0A%0A";
+
+    mensagem +=
+        "*ITENS:*%0A";
+
+
+    carrinho.forEach(item => {
+
+        total += item.preco;
+
+        mensagem +=
+            "• " +
+            encodeURIComponent(item.nome) +
+            " - R$ " +
+            formatar(item.preco);
+
+        if(item.detalhes){
+
+            mensagem +=
+                " (" +
+                encodeURIComponent(item.detalhes) +
+                ")";
+
+        }
+
+        mensagem += "%0A";
+
+    });
+
+
+    mensagem +=
+        "%0A💰 *TOTAL: R$ " +
+        formatar(total) +
+        "*";
+
+
+    if(observacao){
+
+        mensagem +=
+            "%0A%0A📝 Observação: " +
+            encodeURIComponent(observacao);
+
+    }
+
+
+    const url =
+        "https://wa.me/" +
+        WHATSAPP +
+        "?text=" +
+        mensagem;
+
+
+    window.open(url,"_blank");
+
+
+    fecharCheckout();
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+function mostrarPagina(pagina){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(p => p.classList.remove("active"));
+
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(n => n.classList.remove("active"));
+
+
+    if(pagina === "home"){
+
+        document
+            .getElementById("homePage")
+            .classList.add("active");
+
+        document
+            .getElementById("navHome")
+            .classList.add("active");
+
+    }
+
+
+    if(pagina === "menu"){
+
+        document
+            .getElementById("menuPage")
+            .classList.add("active");
+
+        document
+            .getElementById("navMenu")
+            .classList.add("active");
+
+    }
+
+
+    if(pagina === "loyalty"){
+
+        document
+            .getElementById("loyaltyPage")
+            .classList.add("active");
+
+        document
+            .getElementById("navLoyalty")
+            .classList.add("active");
+
+    }
+
+
+    if(pagina === "cart"){
+
+        document
+            .getElementById("cartPage")
+            .classList.add("active");
+
+        document
+            .getElementById("navCart")
+            .classList.add("active");
+
+        atualizarCarrinho();
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
+
+function buscarProdutos(){
+
+    const termo =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    const filtrados =
+        produtos.filter(p =>
+            p.nome.toLowerCase().includes(termo)
+        );
+
+
+    renderProdutos(
+        filtrados,
+        document.getElementById("homeProducts")
     );
 
 }
 
-</script></body>
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+renderProdutos(
+    produtos.slice(0,4),
+    document.getElementById("homeProducts")
+);
+
+renderProdutos(
+    produtos,
+    document.getElementById("menuProducts")
+);
+
+atualizarCarrinho();
+
+</script>
+
+</body>
 </html>
